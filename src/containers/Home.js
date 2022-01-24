@@ -6,6 +6,7 @@ import { uploadArticles } from "../actions";
 import { Button, Grid, Paper, Typography } from "@material-ui/core";
 import { clearSuccess } from "../actions";
 import { useHistory } from "react-router-dom";
+import { AlignedGrid } from "../components/StyledComponents";
 
 const Home = () => {
   const [name, setName] = useState("");
@@ -48,7 +49,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <Grid item xs={12} style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "100px" }}>
+      <AlignedGrid item xs={12} style={{ marginTop: "100px" }}>
         <Paper style={{ width: "40%", padding: "50px", border: "1px solid black" }}>
           <Typography variant="h6" align="center" margin="dense">
             Upload JSON file
@@ -87,14 +88,14 @@ const Home = () => {
             </Grid>
           )}
         </Paper>
-      </Grid>
-      <Grid item container xs={12} style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "20px" }}>
+      </AlignedGrid>
+      <AlignedGrid item container xs={12} style={{ marginTop: "20px" }}>
         <Grid item>
           <Button onClick={() => history.push("/records")} variant="contained" color="primary" fullWidth>
             View Uploaded Data
           </Button>
         </Grid>
-      </Grid>
+      </AlignedGrid>
     </>
   );
 };

@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { clearErrors, userRegistration } from "../actions";
+import { AlignedGrid } from "../components/StyledComponents";
 const Register = () => {
   const history = useHistory();
   const [loading, setLoading] = useState(false);
@@ -46,8 +47,8 @@ const Register = () => {
     history.push("/");
   };
   return (
-    <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-      <Paper style={{ width: "40%", marginTop: "50px" }}>
+    <AlignedGrid>
+      <Paper style={{ width: "40%", marginTop: "50px", border: "1px solid black" }}>
         <form onSubmit={formik.handleSubmit}>
           <Box px={3} py={2}>
             <Typography variant="h6" align="center" margin="dense">
@@ -106,25 +107,25 @@ const Register = () => {
                 </Typography>
                 {loginError.message && <div style={{ color: "red" }}>{loginError.message}</div>}
               </Grid>
-              <Grid item container xs={12} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+              <AlignedGrid item container xs={12}>
                 <Grid item xs={6}>
                   <Button variant="contained" color="primary" fullWidth type="submit" disabled={loading}>
                     Register
                   </Button>
                 </Grid>
-              </Grid>
-              <Grid item container xs={12} style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "40px" }}>
+              </AlignedGrid>
+              <AlignedGrid item container xs={12} style={{ marginTop: "40px" }}>
                 <Grid item>
                   <Button onClick={onLoginClick} variant="contained" color="primary" fullWidth>
                     Log in
                   </Button>
                 </Grid>
-              </Grid>
+              </AlignedGrid>
             </Grid>
           </Box>
         </form>
       </Paper>
-    </div>
+    </AlignedGrid>
   );
 };
 
